@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "MainApp"
+		},
+		{
+			"path": "TestApp"
+		},
+		{
+			"path": "Scripts"
+		}
+	],
+	"settings": {
+		"al.packageCachePath": ".\\.alpackages",
+		"git.enableSmartCommit": false,
+		"git.suggestSmartCommit": false,
+		"alOutline.codeActionsOnSave": [
+			"SortProperties",
+			"SortVariables"
+		],
+		"editor.codeActionsOnSave": {
+			"source.fixAll": "explicit"
+		}
+	}
+}

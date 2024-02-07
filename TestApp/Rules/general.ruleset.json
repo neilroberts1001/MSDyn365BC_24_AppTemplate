@@ -1,0 +1,11 @@
+{
+    "name": "General Ruleset",
+    "description": "General ruleset for AL language",
+    "rules": [
+        {
+            "id": "AA0005",
+            "action": "None",
+            "justification": "Code is Neater."
+        }
+    ]
+}

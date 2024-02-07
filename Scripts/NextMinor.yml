@@ -1,0 +1,43 @@
+name: $(Build.BuildId)
+
+trigger:
+ branches:
+   include:
+     - master
+
+variables:
+- group: 'Secrets'  # link to a variable group that has secret variables, like URL to license file, or sasToken for insider builds
+
+pool: Default
+
+steps:
+- checkout: self
+  clean: true 
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+- task: ALOpsAppCompiler@2
+  inputs:
+    versionselect: NextMinor
+    artifacttype: Sandbox
+    sastoken: $(bc.sasToken)
+    alsourcepath: 'MainApp/app.json'
+    appversiontemplate: '?.?.[yyyyWW].*'
+    appfilenametemplate: '%APP_PUBLISHER%_%APP_NAME%_%APP_VERSION%.app'
+    failonwarnings: true
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+- task: ALOpsAgentMaintenance@1
+  inputs:
+    removeoldtasks: true
+    removeunusedcontainers: true
+    pruneimagesdayscreated: '20'
+    pruneimagesosbased: true
+    removebcartifacts: true
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+- task: ALOpsInfo@1
+  displayName: 'ALOps - Show Environment Information'
+  condition: always()

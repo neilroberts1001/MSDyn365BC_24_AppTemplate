@@ -1,0 +1,20 @@
+{
+    "extensions.autoUpdate": false,
+    "files.autoSave": "off",
+    "al.enableCodeAnalysis": true,
+    "al.codeAnalyzers": [
+        "${CodeCop}",
+        "${PerTenantExtensionCop}",
+        "${UICop}"
+    ],
+    "al.ruleSetPath": ".\\Rules\\general.ruleset.json",
+    "git.autofetch": true,
+    "git.autorefresh": true,
+    "CRS.RenameWithGit": false,
+    "CRS.OnSaveAlFileAction": "Reorganize",
+    "CRS.RemoveSuffixFromFilename": false,
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.ObjectNameSuffix": "_JDXSS"
+}
